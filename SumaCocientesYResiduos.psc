@@ -37,7 +37,42 @@ Funcion presentar()
 FinFuncion
 
 //-----------------------------------------------------------------------------
-
+funci√≥n paresinpares()
+	DEFINIR EJER COMO CADENA;
+	DEFINIR PARENTE, OPERA COMO CARACTER;
+	DEFINIR CONTADORPA, CONTADOROP, i COMO ENTERO;
+	CONTADORPA <- 0;
+	CONTADOROP <- 0;
+	
+	ESCRIBIR "DIGITE EL EJERCICIO";
+	LEER EJER;
+	PARA i <- 0 HASTA LONGITUD(EJER) CON PASO 1 HACER
+		PARENTE <- SUBCADENA(EJER,i,i);
+		SI PARENTE ="(" o PARENTE =")" ENTONCES
+			CONTADORPA <-CONTADORPA+1;
+			Escribir "CONTADOR PARENTESISI",CONTADORPA;
+		FINSI
+	FINPARA
+	CONTADOROP <- 0;
+	i<-1;
+	PARA i <- 1 HASTA LONGITUD(EJER) CON PASO 1 HACER
+		OPERA <- SUBCADENA(EJER,i,i);
+		SI OPERA ="+" O OPERA ="-" O OPERA ="*" ENTONCES
+			CONTADOROP <-CONTADOROP+1;
+			Escribir "CONTADOR OPERADOR",CONTADOROP;
+		FINSI
+	FINPARA
+	SI CONTADORPA = CONTADOROP ENTONCES
+		ESCRIBIR"HAY IGUAL CANTIDAD DE PARENTECIS Y OPERADORES";
+	SINO
+		SI CONTADOROP > CONTADORPA ENTONCES
+			ESCRIBIR " HAY MAYOR CANTIDA DE OPERADORES";
+		SINO
+			ESCRIBIR "HAY MAYOR CANTIDAD DE PARENTESIS";
+		FINSI
+	FINSI
+Finfuncion
+//-----------------------------------------------------------------------------------------------
 funcion CalcularPulsaciones()
 	Definir nombre Como Cadena
 	Definir edad, base Como Entero
@@ -46,7 +81,7 @@ funcion CalcularPulsaciones()
 	Escribir "Ingrese su nombre:"
 	Leer nombre
 	
-	Escribir "Ingrese su edad en aÒos:"
+	Escribir "Ingrese su edad en a√±os:"
 	Leer edad
 	
 	Si edad < 18 Entonces
@@ -63,11 +98,11 @@ funcion CalcularPulsaciones()
 		Escribir "Edad:", edad
 		
 		Si edad < 18 Entonces
-			Escribir "CategorÌa: Menor de edad"
+			Escribir "Categor√≠a: Menor de edad"
 		Sino Si edad >= 18 Y edad < 65 Entonces
-				Escribir "CategorÌa: Mayor de edad"
+				Escribir "Categor√≠a: Mayor de edad"
 			Sino
-				Escribir "CategorÌa: Adulto mayor"
+				Escribir "Categor√≠a: Adulto mayor"
 			FinSi
 			
 			Escribir "Pulsaciones por segundo:", pulsaciones
@@ -101,12 +136,15 @@ funcion SumaCocientesYResiduos()
     Escribir "Suma de residuos impares = ", sumaResiduos
     
 FinFuncion
+//------------------------------------------------'
+
 //---------------------------------------------------------------------------------------------
 Proceso algoritm
-	//triangulo_estrellas()
-	//expresion()
-	//presentar()
-	// CalcularPulsaciones()
-	//SumaCocientesYResiduos()
+	triangulo_estrellas()
+	expresion()
+	presentar()
+        paresinpares()
+        CalcularPulsaciones()
+	SumaCocientesYResiduos()
 FinProceso
 	
